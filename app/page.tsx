@@ -31,7 +31,7 @@ export default function Home() {
         <div className="mx-auto max-w-md sm:max-w-xl w-full md:max-w-3xl lg:max-w-4xl">
           <div className="transition-wrapper">
             <div className="wrapper break-words text-center">
-              <h2 className="text-2xl md:text-4xl leading-9	">
+              <h2 className="text-2xl md:text-4xl leading-9	font-">
                 <strong>
                   Curious about how I can support your company&apos;s growth as
                   a Frontend Developer?
