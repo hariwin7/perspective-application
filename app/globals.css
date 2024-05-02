@@ -17,3 +17,11 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.youtube-iframe {
+  border-radius: 5px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  width: 800px;
+  height: 450px;
+}
