@@ -54,23 +54,34 @@ interface Element {
 interface EditorState {
   editorConfig: Element[];
   setEditorConfig: (newConfig: Element[]) => void;
-  currentSelection: number;
-  setCurrentSelection: (selection: number) => void;
+
+  currentSelection: string;
+  setCurrentSelection: (selection: string) => void;
+
+  editMode: boolean;
+  setEditMode: (mode: boolean) => void;
 }
 
 const useEditorStore = create<EditorState>()(
   devtools(
     persist(
       (set) => ({
-        currentSelection: 0,
-        editorConfig: TEST_ELEMENT,
+        currentSelection: "",
         setCurrentSelection: (selection) =>
           set(() => ({
             currentSelection: selection,
           })),
+
+        editorConfig: TEST_ELEMENT,
         setEditorConfig: (newConfig) =>
           set(() => ({
             editorConfig: newConfig,
+          })),
+
+        editMode: false,
+        setEditMode: (mode) =>
+          set(() => ({
+            editMode: mode,
           })),
       }),
       {
