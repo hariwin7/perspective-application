@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { NotePencil } from "@phosphor-icons/react/dist/ssr";
 
 const Navbar = ({ fixed }: { fixed?: boolean }) => {
   return (
@@ -18,9 +19,17 @@ const Navbar = ({ fixed }: { fixed?: boolean }) => {
           height={40}
         ></Image>
       </Link>
-      <button className="bg-primary-blue text-white px-6 text-sm capitalize rounded-lg drop-shadow-sm hover:bg-hover-blue">
-        publish
-      </button>
+      <div className="flex gap-10 justify-center items-center">
+        <div className="p-2 hover:bg-[#F2F8FF] drop-shadow-none rounded-lg">
+          <NotePencil
+            size={22}
+            className="cursor-pointer text-[#cecece] hover:text-hover-blue"
+          />
+        </div>
+        <button className="bg-primary-blue text-white px-6 py-2 text-sm capitalize rounded-lg drop-shadow-sm hover:bg-hover-blue">
+          publish
+        </button>
+      </div>
     </div>
   );
 };

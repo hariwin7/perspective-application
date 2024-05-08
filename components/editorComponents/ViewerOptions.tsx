@@ -1,5 +1,10 @@
 import React from "react";
-import { ArrowUUpLeft, ArrowUUpRight, Monitor } from "@phosphor-icons/react";
+import {
+  ArrowUUpLeft,
+  ArrowUUpRight,
+  DeviceMobile,
+  Monitor,
+} from "@phosphor-icons/react";
 
 interface Props {
   desktop: boolean;
@@ -10,12 +15,22 @@ const ViewerOptions = ({ setDeskop, desktop }: Props) => {
   return (
     <div className="absolute bottom-10 right-10 ">
       <div className="flex flex-col p-2 bg-white rounded-lg drop-shadow-md gap-4">
-        <Monitor
-          size={22}
-          color="#cecece"
-          className="hover:scale-110 cursor-pointer"
-          onClick={() => setDeskop(!desktop)}
-        />
+        {desktop ? (
+          <DeviceMobile
+            size={22}
+            color="#cecece"
+            className="hover:scale-110 cursor-pointer"
+            onClick={() => setDeskop(!desktop)}
+          />
+        ) : (
+          <Monitor
+            size={22}
+            color="#cecece"
+            className="hover:scale-110 cursor-pointer"
+            onClick={() => setDeskop(!desktop)}
+          />
+        )}
+
         <hr />
         <ArrowUUpLeft
           size={22}

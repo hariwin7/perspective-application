@@ -1,33 +1,37 @@
-import React from "react";
-import Text from "@/components/editorComponents/FormComponents/Text";
+import React, { useState } from "react";
+import { Reorder } from "framer-motion";
+import Block from "@/components/editorComponents/FormComponents/Block";
+import useEditorStore from "@/store/editorStore";
+
 interface Props {
   desktop: boolean;
 }
+
 const Viewer = ({ desktop }: Props) => {
-  const TEST_ELEMENT = [
-    {
-      id: "2",
-      element: "h4",
-      className: "text-sm font-thin text-center",
-      content:
-        "Here is my application to a dream job, without a traditional job application!",
-    },
-    {
-      id: "1",
-      element: "h1",
-      className: "text-2xl font-bold mt-10  text-center",
-      content:
-        "Curious about your benefits as a Content Marketing Manager (m/f/d) with us?",
-    },
-  ];
-  const className = `flex flex-col min-h-[667px] h-full bg-white drop-shadow-2xl overflow-scroll m-10 rounded-lg p-10 justify-self-center ${
+  const editorConfig = useEditorStore((state) => state.editorConfig);
+  const setEditorConfig = useEditorStore((state) => state.setEditorConfig);
+
+  const className = `min-h-[667px] h-full bg-white drop-shadow-2xl overflow-y-scroll justify-self-center p-2 ${
     desktop ? " w-[1020px]" : " w-[375px]"
   }`;
+  const reOrderClassname =
+    "flex flex-col rounded-lg items-center  overflow-visible";
   return (
     <div className={className}>
-      {TEST_ELEMENT.map((item) => (
-        <Text {...item} key={item.id} />
-      ))}
+      <Reorder.Group
+        axis="y"
+        values={editorConfig}
+        onReorder={setEditorConfig}
+        className={reOrderClassname}
+      >
+        {editorConfig.map((item) => (
+          <Reorder.Item key={item.id} value={item}>
+            <div className="outline-primary-blue hover:outline-dashed cursor-pointer">
+              <Block {...item} key={item.id} />
+            </div>
+          </Reorder.Item>
+        ))}
+      </Reorder.Group>
     </div>
   );
 };
