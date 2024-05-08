@@ -5,7 +5,7 @@ import Link from "next/link";
 const Navbar = ({ fixed }: { fixed?: boolean }) => {
   return (
     <div
-      className={`w-full p-4 border-box bg-transparent drop-shadow-md ${
+      className={`flex justify-between w-full p-4 border-box bg-transparent drop-shadow-md ${
         fixed && "sticky top-0 z-40"
       }`}
     >
@@ -18,6 +18,9 @@ const Navbar = ({ fixed }: { fixed?: boolean }) => {
           height={40}
         ></Image>
       </Link>
+      <button className="bg-primary-blue text-white px-6 text-sm capitalize rounded-lg drop-shadow-sm hover:bg-hover-blue">
+        publish
+      </button>
     </div>
   );
 };

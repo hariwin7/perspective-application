@@ -1,6 +1,6 @@
-import HireMeNow from "../components/HireMeNow";
-import Navbar from "../components/Navbar";
-import WorkSection from "../components/WorkSection";
+import HireMeNow from "@/components/HireMeNow";
+import Navbar from "@/components/Navbar";
+import WorkSection from "@/components/WorkSection";
 
 export default function Home() {
   return (

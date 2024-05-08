@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar";
+import EditorNav from "@/components/editorComponents/EditorNav";
 
 export default function RootLayout({
   children,
@@ -6,9 +6,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen flex-col w-full">
-      <Navbar />
-      <div className="flex w-full overflow-y-hidden">{children}</div>
+    <div className="flex h-screen flex-col w-full overflow-y-hidden">
+      <EditorNav fixed />
+      <div className="flex w-full h-full">{children}</div>
     </div>
   );
 }

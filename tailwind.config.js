@@ -15,6 +15,8 @@ module.exports = {
       colors: {
         "yellow-button": "rgb(255, 183, 15)",
         "editor-gray": "#F4F5F7",
+        "primary-blue": "#007aff",
+        "hover-blue": "#0062cc",
       },
     },
   },

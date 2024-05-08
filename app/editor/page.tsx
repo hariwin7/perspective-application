@@ -1,9 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 
-import EditorCanvas from "../../components/editorComponents/EditorCanvas";
-import LeftSideBar from "../../components/editorComponents/LeftSideBar";
-import EditorLayout from "../../components/editorComponents/EditorLayout";
+import EditorCanvas from "@/components/editorComponents/EditorCanvas";
+import LeftSideBar from "@/components/editorComponents/LeftSideBar";
+import EditorLayout from "@/components/editorComponents/EditorLayout";
 
 export const metadata: Metadata = {
   title: "Build your webpage",
