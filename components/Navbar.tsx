@@ -2,9 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ fixed }: { fixed?: boolean }) => {
   return (
-    <div className="w-full p-4 border-box sm:py-6 bg-transparent">
+    <div
+      className={`w-full p-4 border-box  bg-transparent drop-shadow-md ${
+        fixed && "sticky top-0 z-40"
+      }`}
+    >
       <Link className="text-left" href="/">
         <Image
           alt="Logo"

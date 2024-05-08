@@ -1,9 +1,12 @@
-import HireMeNow from "./components/HireMeNow";
+import HireMeNow from "../components/HireMeNow";
+import Navbar from "../components/Navbar";
+import WorkSection from "../components/WorkSection";
 
 export default function Home() {
   return (
-    <main>
-      <div className="w-full border-box pt-4 pl-8 pr-8 pb-4">
+    <main className="overflow-scroll w-full">
+      <Navbar />
+      <div className="w-full border-box pt-4 pl-8 pr-8 pb-4 ">
         <div className="mx-auto max-w-md sm:max-w-xl w-full md:max-w-3xl lg:max-w-4xl">
           <div className="transition-wrapper">
             <div className="wrapper break-words text-center font-extralight">
@@ -16,6 +19,7 @@ export default function Home() {
         </div>
       </div>
       <HireMeNow />
+      <WorkSection />
     </main>
   );
 }

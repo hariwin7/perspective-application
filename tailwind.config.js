@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         "yellow-button": "rgb(255, 183, 15)",
+        "editor-gray": "#F4F5F7",
       },
     },
   },
