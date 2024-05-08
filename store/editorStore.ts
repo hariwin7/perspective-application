@@ -39,7 +39,7 @@ const TEST_ELEMENT = [
   {
     id: "6",
     element: "h3",
-    className: "text-xl font-bold text-center p-2",
+    className: "text-xl font-semibold text-center p-2",
     content: "Front End / Backend Developer",
   },
 ];
@@ -64,30 +64,30 @@ interface EditorState {
 
 const useEditorStore = create<EditorState>()(
   devtools(
-    persist(
-      (set) => ({
-        currentSelection: "",
-        setCurrentSelection: (selection) =>
-          set(() => ({
-            currentSelection: selection,
-          })),
+    // persist(
+    (set) => ({
+      currentSelection: "",
+      setCurrentSelection: (selection) =>
+        set(() => ({
+          currentSelection: selection,
+        })),
 
-        editorConfig: TEST_ELEMENT,
-        setEditorConfig: (newConfig) =>
-          set(() => ({
-            editorConfig: newConfig,
-          })),
+      editorConfig: TEST_ELEMENT,
+      setEditorConfig: (newConfig) =>
+        set(() => ({
+          editorConfig: newConfig,
+        })),
 
-        editMode: false,
-        setEditMode: (mode) =>
-          set(() => ({
-            editMode: mode,
-          })),
-      }),
-      {
-        name: "current selection",
-      }
-    )
+      editMode: false,
+      setEditMode: (mode) =>
+        set(() => ({
+          editMode: mode,
+        })),
+    })
+    //   {
+    //     name: "current selection",
+    //   }
+    // )
   )
 );
 

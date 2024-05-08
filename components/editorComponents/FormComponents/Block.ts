@@ -5,8 +5,8 @@ interface Props {
   className: string;
   content: string;
 }
-const Text = ({ element, className, content }: Props) => {
+const Block = ({ element, className, content }: Props) => {
   return createElement(element, { className }, content);
 };
 
-export default Text;
+export default Block;
