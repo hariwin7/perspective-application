@@ -5,49 +5,84 @@ import type {} from "@redux-devtools/extension"; // required for devtools typing
 const TEST_ELEMENT = [
   {
     id: "1",
-    element: "h4",
-    className: "text-sm font-thin text-center p-2",
+    component: "text",
+    element: "h6",
     content:
       "Here is my application to a dream job, without a traditional job application!",
   },
   {
     id: "2",
-    element: "h1",
-    className: "text-2xl font-bold text-center p-2",
+    component: "text",
+    element: "h2",
+    className: "text-2xl font-semibold",
     content:
       "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
   },
   {
     id: "3",
-    element: "button",
-    className:
-      "bg-[#ffb70f] text-white p-2 text-sm capitalize rounded-lg drop-shadow-sm hover:bg-[#ffb70f] m-4 w-40",
+    component: "button",
+    style: { width: "200px" },
     content: "Hire me now",
   },
   {
     id: "4",
-    element: "h4",
-    className: "text-sm font-thin text-center p-2",
+    component: "text",
+    element: "h5",
+    style: { fontWeight: 200 },
     content: "📍 Remote 🚀 as of now ⏰ Full-time",
   },
   {
     id: "5",
-    element: "h4",
-    className: "text-sm font-thin text-center p-2",
+    component: "text",
+    element: "h5",
+    style: { fontWeight: 200 },
     content: "Hire me now as",
   },
   {
     id: "6",
+    component: "text",
     element: "h3",
-    className: "text-xl font-semibold text-center p-2",
+    style: { fontWeight: 600 },
     content: "Front End / Backend Developer",
   },
+  // {
+  //   id: "7",
+  //   component: "text",
+  //   element: "h5",
+  //   style: { fontWeight: 200 },
+  //   content: "Hire me now as",
+  // },
+  // {
+  //   id: "8",
+  //   component: "text",
+  //   element: "h3",
+  //   style: { fontWeight: 600 },
+  //   content: "Front End / Backend Developer",
+  // },
+  // {
+  //   id: "9",
+  //   component: "text",
+  //   element: "h2",
+  //   className: "text-2xl font-semibold",
+  //   content:
+  //     "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
+  // },
+  // {
+  //   id: "10",
+  //   component: "text",
+  //   element: "h2",
+  //   className: "text-2xl font-semibold",
+  //   content:
+  //     "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
+  // },
 ];
 
 interface Element {
   id: string;
-  element: string;
-  className: string;
+  component: string;
+  element?: string;
+  className?: string;
+  style?: Object;
   content: string;
 }
 

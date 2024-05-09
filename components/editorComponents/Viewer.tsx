@@ -18,7 +18,7 @@ const Viewer = ({ desktop }: Props) => {
 
   const editMode = useEditorStore((state) => state.editMode);
 
-  const className = `min-h-[667px] h-full bg-white drop-shadow-2xl overflow-y-scroll justify-self-center p-2 ${
+  const className = `h-full bg-white drop-shadow-2xl  justify-self-center p-2 flex justify-center ${
     desktop ? " w-[1020px]" : " w-[375px]"
   }`;
   const reOrderClassname =
@@ -26,33 +26,35 @@ const Viewer = ({ desktop }: Props) => {
 
   return (
     <div className={className}>
-      {editMode ? (
-        <Reorder.Group
-          axis="y"
-          values={editorConfig}
-          onReorder={setEditorConfig}
-          className={reOrderClassname}
-        >
-          {editorConfig.map((item) => (
-            <Reorder.Item key={item.id} value={item}>
-              <div
-                className={`outline-primary-blue hover:outline-dashed cursor-pointer ${
-                  currentSelection === item.id && "outline"
-                }`}
-                onClick={() => setCurrentSelection(item.id)}
-              >
-                <Block {...item} key={item.id} />
-              </div>
-            </Reorder.Item>
-          ))}
-        </Reorder.Group>
-      ) : (
-        <div className={reOrderClassname}>
-          {editorConfig.map((item) => (
-            <Block {...item} key={item.id} />
-          ))}
-        </div>
-      )}
+      <div className={`min-h-[667px] ${desktop ? "w-[700px]" : ""}`}>
+        {editMode ? (
+          <Reorder.Group
+            axis="y"
+            values={editorConfig}
+            onReorder={setEditorConfig}
+            className={reOrderClassname}
+          >
+            {editorConfig.map((item) => (
+              <Reorder.Item key={item.id} value={item}>
+                <div
+                  className={`outline-primary-blue hover:outline-dashed cursor-pointer ${
+                    currentSelection === item.id && "outline"
+                  }`}
+                  onClick={() => setCurrentSelection(item.id)}
+                >
+                  <Block {...item} key={item.id} />
+                </div>
+              </Reorder.Item>
+            ))}
+          </Reorder.Group>
+        ) : (
+          <div className={reOrderClassname}>
+            {editorConfig.map((item) => (
+              <Block {...item} key={item.id} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
