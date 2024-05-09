@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import BlocksList from "./SideBarComponents/BlocksList";
-import TextConfig from "./SideBarComponents/TextConfig";
+import BlockEditorConfig from "./SideBarComponents/BlockEditorConfig";
 import useEditorStore from "@/store/editorStore";
 import { sideBarType } from "@/constants/components";
 
@@ -15,13 +15,12 @@ const LeftSideBar = () => {
       case sideBarType.addBlock:
         return <BlocksList />;
       case sideBarType.blockElement:
-        return <TextConfig />;
+        return <BlockEditorConfig />;
     }
   };
 
   return (
     <div className="flex md:w-[280px] drop-shadow-xl mt-[3px] bg-white h-full">
-      {currentSideBarComponent}
       {getSideBarComponent()}
     </div>
   );

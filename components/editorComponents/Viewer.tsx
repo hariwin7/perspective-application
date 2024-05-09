@@ -4,7 +4,7 @@ import { Plus } from "@phosphor-icons/react";
 import Block from "@/components/editorComponents/FormComponents/Block";
 import useEditorStore from "@/store/editorStore";
 import { sideBarType } from "@/constants/components";
-
+import BlockOptions from "./FormComponents/BlockOptions";
 interface Props {
   desktop: boolean;
 }
@@ -56,6 +56,7 @@ const Viewer = ({ desktop }: Props) => {
                   }}
                   key={item.id}
                 >
+                  {currentSelection === item.id && <BlockOptions />}
                   <Block {...item} key={item.id} />
                 </div>
               </Reorder.Item>
