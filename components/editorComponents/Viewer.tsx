@@ -3,6 +3,7 @@ import { Reorder } from "framer-motion";
 import { Plus } from "@phosphor-icons/react";
 import Block from "@/components/editorComponents/FormComponents/Block";
 import useEditorStore from "@/store/editorStore";
+import { sideBarType } from "@/constants/components";
 
 interface Props {
   desktop: boolean;
@@ -11,6 +12,10 @@ interface Props {
 const Viewer = ({ desktop }: Props) => {
   const editorConfig = useEditorStore((state) => state.editorConfig);
   const setEditorConfig = useEditorStore((state) => state.setEditorConfig);
+
+  const setCurrentSideBarComponent = useEditorStore(
+    (state) => state.setCurrentSideBarComponent
+  );
 
   const currentSelection = useEditorStore((state) => state.currentSelection);
   const setCurrentSelection = useEditorStore(
@@ -45,7 +50,11 @@ const Viewer = ({ desktop }: Props) => {
                   className={`outline-primary-blue hover:outline-dashed cursor-pointer ${
                     currentSelection === item.id && "outline"
                   }`}
-                  onClick={() => setCurrentSelection(item.id)}
+                  onClick={() => {
+                    setCurrentSideBarComponent(sideBarType.blockElement);
+                    setCurrentSelection(item.id);
+                  }}
+                  key={item.id}
                 >
                   <Block {...item} key={item.id} />
                 </div>
@@ -60,7 +69,10 @@ const Viewer = ({ desktop }: Props) => {
           </div>
         )}
         {editMode && (
-          <button className="rounded-full bg-white w-10 h-10 text-center justify-center flex items-center drop-shadow-2xl m-10 hover:scale-125 justify-self-center self-center">
+          <button
+            className="rounded-full bg-white w-10 h-10 text-center justify-center flex items-center drop-shadow-2xl m-10 hover:scale-125 justify-self-center self-center"
+            onClick={() => setCurrentSideBarComponent(sideBarType.addBlock)}
+          >
             <Plus size={22} color="#cecece" />
           </button>
         )}

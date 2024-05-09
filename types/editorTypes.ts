@@ -1,5 +1,5 @@
 export interface ComponentProp {
-  content: string;
+  content?: string;
   className?: string;
   style?: Object;
 }
@@ -21,4 +21,14 @@ export interface TitleCardItem {
   cardText: string;
   cardImgSrc: string;
   cardRoute?: string;
+}
+
+export interface MaincomponentPropWithId extends BlockProp {
+  id?: string;
+}
+
+export interface BlockConfigType {
+  name: string;
+  blockDiv: () => React.JSX.Element;
+  defaultConfig: MaincomponentPropWithId;
 }

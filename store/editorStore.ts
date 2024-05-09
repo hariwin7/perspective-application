@@ -6,9 +6,6 @@ const TEST_ELEMENT = [
   {
     id: "1nav",
     component: "navbar",
-    element: "h6",
-    content:
-      "Here is my application to a dream job, without a traditional job application!",
   },
   {
     id: "1",
@@ -77,9 +74,6 @@ const TEST_ELEMENT = [
   {
     id: "10",
     component: "imagecard",
-    element: "h2",
-    className: "text-2xl font-semibold",
-    content: "",
     items: [
       {
         cardText: "Yes, absolutely",
@@ -102,7 +96,7 @@ interface Element {
   element?: string;
   className?: string;
   style?: Object;
-  content: string;
+  content?: string;
 }
 
 interface EditorState {
@@ -114,6 +108,9 @@ interface EditorState {
 
   editMode: boolean;
   setEditMode: (mode: boolean) => void;
+
+  currentSideBarComponent: string;
+  setCurrentSideBarComponent: (mode: string) => void;
 }
 
 const useEditorStore = create<EditorState>()(
@@ -136,6 +133,12 @@ const useEditorStore = create<EditorState>()(
       setEditMode: (mode) =>
         set(() => ({
           editMode: mode,
+        })),
+
+      currentSideBarComponent: "",
+      setCurrentSideBarComponent: (mode) =>
+        set(() => ({
+          currentSideBarComponent: mode,
         })),
     })
     //   {
