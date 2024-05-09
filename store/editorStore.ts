@@ -4,6 +4,13 @@ import type {} from "@redux-devtools/extension"; // required for devtools typing
 
 const TEST_ELEMENT = [
   {
+    id: "1nav",
+    component: "navbar",
+    element: "h6",
+    content:
+      "Here is my application to a dream job, without a traditional job application!",
+  },
+  {
     id: "1",
     component: "text",
     element: "h6",
@@ -67,14 +74,26 @@ const TEST_ELEMENT = [
   //   content:
   //     "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
   // },
-  // {
-  //   id: "10",
-  //   component: "text",
-  //   element: "h2",
-  //   className: "text-2xl font-semibold",
-  //   content:
-  //     "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
-  // },
+  {
+    id: "10",
+    component: "imagecard",
+    element: "h2",
+    className: "text-2xl font-semibold",
+    content: "",
+    items: [
+      {
+        cardText: "Yes, absolutely",
+        cardImgSrc:
+          "https://perspective.imgix.net/6019615ddf56ee001f39be7f.png?auto=compress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.51&fp-y=0.50&fp-z=1&h=480&ar=1.3333333333333333&dpr=2",
+        cardRoute: "/intro",
+      },
+      {
+        cardText: "Learn More",
+        cardImgSrc:
+          "https://perspective.imgix.net/601961b3e2bbda001f253741.png?ixlib=js-2.3.2&auto=format%2Ccompress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.50&fp-y=0.50&fp-z=1&h=480&q=80&ar=1.3333333333333333&dpr=2",
+      },
+    ],
+  },
 ];
 
 interface Element {

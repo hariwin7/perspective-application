@@ -6,6 +6,7 @@ export interface ComponentProp {
 
 export interface MaincomponentProp extends ComponentProp {
   element?: string;
+  items?: Array<TitleCardItem>;
 }
 
 export interface BlockProp extends MaincomponentProp {
@@ -14,4 +15,10 @@ export interface BlockProp extends MaincomponentProp {
 
 export interface ButtonProp extends ComponentProp {
   clickHandler?: () => void;
+}
+
+export interface TitleCardItem {
+  cardText: string;
+  cardImgSrc: string;
+  cardRoute?: string;
 }

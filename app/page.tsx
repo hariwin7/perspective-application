@@ -1,5 +1,5 @@
 import HireMeNow from "@/components/HireMeNow";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/editorComponents/Navbar";
 import WorkSection from "@/components/WorkSection";
 
 export default function Home() {

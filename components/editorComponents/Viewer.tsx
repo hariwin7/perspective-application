@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Reorder } from "framer-motion";
+import { Plus } from "@phosphor-icons/react";
 import Block from "@/components/editorComponents/FormComponents/Block";
 import useEditorStore from "@/store/editorStore";
 
@@ -18,15 +19,19 @@ const Viewer = ({ desktop }: Props) => {
 
   const editMode = useEditorStore((state) => state.editMode);
 
-  const className = `h-full bg-white drop-shadow-2xl  justify-self-center p-2 flex justify-center ${
+  const className = `h-full bg-white drop-shadow-2xl  justify-self-center p-2 flex justify-center rounded-lg ${
     desktop ? " w-[1020px]" : " w-[375px]"
-  }`;
+  } bg-[#F4F4F7]`;
   const reOrderClassname =
-    "flex flex-col rounded-lg items-center  overflow-visible";
+    "flex flex-col rounded-lg items-center overflow-visible";
 
   return (
     <div className={className}>
-      <div className={`min-h-[667px] ${desktop ? "w-[700px]" : ""}`}>
+      <div
+        className={`flex  flex-col items-center min-h-[667px] ${
+          desktop ? "w-[700px]" : ""
+        }`}
+      >
         {editMode ? (
           <Reorder.Group
             axis="y"
@@ -53,6 +58,11 @@ const Viewer = ({ desktop }: Props) => {
               <Block {...item} key={item.id} />
             ))}
           </div>
+        )}
+        {editMode && (
+          <button className="rounded-full bg-white w-10 h-10 text-center justify-center flex items-center drop-shadow-2xl m-10 hover:scale-125 justify-self-center self-center">
+            <Plus size={22} color="#cecece" />
+          </button>
         )}
       </div>
     </div>

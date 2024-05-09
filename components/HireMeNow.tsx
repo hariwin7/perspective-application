@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import TitleCard from "./TitleCard";
+import TitleCard from "./editorComponents/FormComponents/TitleCard";
 import ArrowDown from "./ArrowDown";
 const HireMeNow = () => {
   return (
@@ -58,6 +58,7 @@ const HireMeNow = () => {
             </div>
           </div>
           <TitleCard
+            content=""
             items={[
               {
                 cardText: "Yes, absolutely",
