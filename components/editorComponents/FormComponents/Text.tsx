@@ -13,7 +13,7 @@ const getComponent = ({
     case "h1":
       return (
         <h1
-          className={`text-4xl font-bold text-center p-2 ${className}`}
+          className={`text-4xl font-bold text-center p-2 break-word ${className}`}
           style={style}
         >
           {content}
@@ -22,7 +22,7 @@ const getComponent = ({
     case "h2":
       return (
         <h2
-          className={`text-2xl font-semibold text-center p-2 ${className}`}
+          className={`text-2xl font-semibold text-center p-2 break-word ${className}`}
           style={style}
         >
           {content}
@@ -31,7 +31,7 @@ const getComponent = ({
     case "h3":
       return (
         <h3
-          className={`text-xl font-medium text-center p-2 ${className}`}
+          className={`text-xl font-medium text-center p-2 break-word ${className}`}
           style={style}
         >
           {content}
@@ -40,7 +40,7 @@ const getComponent = ({
     case "h4":
       return (
         <h4
-          className={`text-lg font-normal text-center p-2 ${className}`}
+          className={`text-lg font-normal text-center p-2 break-word ${className}`}
           style={style}
         >
           {content}
@@ -49,7 +49,7 @@ const getComponent = ({
     case "h5":
       return (
         <h5
-          className={`text-base font-light text-center p-2 ${className}`}
+          className={`text-base font-light text-center p-2 break-word ${className}`}
           style={style}
         >
           {content}
@@ -58,7 +58,7 @@ const getComponent = ({
     case "h6":
       return (
         <h6
-          className={`text-sm font-extralight text-center p-2 ${className}`}
+          className={`text-sm font-extralight text-center p-2 break-word ${className}`}
           style={style}
         >
           {content}

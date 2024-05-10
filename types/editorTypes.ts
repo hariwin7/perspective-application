@@ -10,7 +10,7 @@ export interface MaincomponentProp extends ComponentProp {
 }
 
 export interface BlockProp extends MaincomponentProp {
-  component: string;
+  component?: string;
 }
 
 export interface ButtonProp extends ComponentProp {
@@ -29,6 +29,5 @@ export interface MaincomponentPropWithId extends BlockProp {
 
 export interface BlockConfigType {
   name: string;
-  blockDiv: () => React.JSX.Element;
   defaultConfig: MaincomponentPropWithId;
 }

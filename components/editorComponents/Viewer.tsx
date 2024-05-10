@@ -33,8 +33,8 @@ const Viewer = ({ desktop }: Props) => {
   return (
     <div className={className}>
       <div
-        className={`flex  flex-col items-center min-h-[667px] ${
-          desktop ? "w-[700px]" : ""
+        className={`flex w-full flex-col items-center min-h-[667px] ${
+          desktop ? "w-[690px]" : ""
         }`}
       >
         {editMode ? (
@@ -44,28 +44,27 @@ const Viewer = ({ desktop }: Props) => {
             onReorder={setEditorConfig}
             className={reOrderClassname}
           >
-            {editorConfig.map((item) => (
-              <Reorder.Item key={item.id} value={item}>
-                <div
-                  className={`outline-primary-blue hover:outline-dashed cursor-pointer ${
-                    currentSelection === item.id && "outline"
-                  }`}
-                  onClick={() => {
-                    setCurrentSideBarComponent(sideBarType.blockElement);
-                    setCurrentSelection(item.id);
-                  }}
-                  key={item.id}
-                >
-                  {currentSelection === item.id && <BlockOptions />}
-                  <Block {...item} key={item.id} />
-                </div>
+            {editorConfig.map((item, index) => (
+              <Reorder.Item
+                className={`outline-primary-blue hover:outline-dashed cursor-pointer flex justify-center w-[100%] ${
+                  currentSelection === item.id && "outline"
+                }`}
+                key={item.id}
+                value={item}
+                onClick={() => {
+                  setCurrentSideBarComponent(sideBarType.blockElement);
+                  setCurrentSelection(item.id || "");
+                }}
+              >
+                {currentSelection === item.id && <BlockOptions />}
+                <Block {...item} key={item.id || index} />
               </Reorder.Item>
             ))}
           </Reorder.Group>
         ) : (
           <div className={reOrderClassname}>
-            {editorConfig.map((item) => (
-              <Block {...item} key={item.id} />
+            {editorConfig.map((item, index) => (
+              <Block {...item} key={item.id || index} />
             ))}
           </div>
         )}

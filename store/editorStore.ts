@@ -31,14 +31,14 @@ const TEST_ELEMENT = [
   {
     id: "4",
     component: "text",
-    element: "h5",
+    element: "h6",
     style: { fontWeight: 200 },
     content: "📍 Remote 🚀 as of now ⏰ Full-time",
   },
   {
     id: "5",
     component: "text",
-    element: "h5",
+    element: "h6",
     style: { fontWeight: 200 },
     content: "Hire me now as",
   },
@@ -49,28 +49,6 @@ const TEST_ELEMENT = [
     style: { fontWeight: 600 },
     content: "Front End / Backend Developer",
   },
-  // {
-  //   id: "7",
-  //   component: "text",
-  //   element: "h5",
-  //   style: { fontWeight: 200 },
-  //   content: "Hire me now as",
-  // },
-  // {
-  //   id: "8",
-  //   component: "text",
-  //   element: "h3",
-  //   style: { fontWeight: 600 },
-  //   content: "Front End / Backend Developer",
-  // },
-  // {
-  //   id: "9",
-  //   component: "text",
-  //   element: "h2",
-  //   className: "text-2xl font-semibold",
-  //   content:
-  //     "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
-  // },
   {
     id: "10",
     component: "imagecard",
@@ -91,8 +69,8 @@ const TEST_ELEMENT = [
 ];
 
 interface Element {
-  id: string;
-  component: string;
+  id?: string;
+  component?: string;
   element?: string;
   className?: string;
   style?: Object;

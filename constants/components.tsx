@@ -4,28 +4,16 @@ export const sideBarType = {
   addBlock: "add-block",
   blockElement: "block-element",
 };
+
 export const blocks = [
   {
     name: "Navbar",
-    blockDiv: () => (
-      <div className="flex flex-col items-center w-full max-w-[360px] gap-2">
-        <div className="h-4 ms-2 bg-[#E4E9D4] rounded-md w-full"></div>
-      </div>
-    ),
-
     defaultConfig: {
       component: "navbar",
     },
   },
   {
     name: "Text",
-    blockDiv: () => (
-      <div className="flex flex-col items-center w-full max-w-[360px] gap-2">
-        <div className="h-2.5 ms-2 bg-[#E4E9D4] rounded-full  w-full"></div>
-        <div className="h-2.5 ms-2 bg-[#E4E9D4] rounded-full  w-full"></div>
-        <div className="h-2.5 ms-2 bg-[#E4E9D4] rounded-full  w-full"></div>
-      </div>
-    ),
     defaultConfig: {
       component: "text",
       element: "h1",
@@ -35,11 +23,6 @@ export const blocks = [
   },
   {
     name: "Button",
-    blockDiv: () => (
-      <div className="flex flex-col items-center w-full max-w-[360px] gap-2">
-        <div className="h-8 ms-2 bg-[#E4E9D4] rounded-lg w-[50%]"></div>
-      </div>
-    ),
     defaultConfig: {
       component: "button",
       style: { width: "200px" },
@@ -48,12 +31,6 @@ export const blocks = [
   },
   {
     name: "Card",
-    blockDiv: () => (
-      <div className="flex items-center w-full max-w-[360px] gap-2">
-        <div className="h-16 ms-2 bg-[#E4E9D4] rounded-md w-[50%]"></div>
-        <div className="h-16 ms-2 bg-[#E4E9D4] rounded-md w-[50%]"></div>
-      </div>
-    ),
     defaultConfig: {
       component: "imagecard",
       items: [

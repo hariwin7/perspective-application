@@ -14,6 +14,8 @@ const getComponent = ({
   style,
   items,
 }: Props) => {
+  if (!component) return <></>;
+
   switch (component.toLowerCase()) {
     case "text":
       return (
