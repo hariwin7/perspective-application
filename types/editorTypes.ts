@@ -1,7 +1,7 @@
 export interface ComponentProp {
   content?: string;
   className?: string;
-  style?: Object;
+  style?: Object | any;
 }
 
 export interface MaincomponentProp extends ComponentProp {
@@ -30,4 +30,10 @@ export interface MaincomponentPropWithId extends BlockProp {
 export interface BlockConfigType {
   name: string;
   defaultConfig: MaincomponentPropWithId;
+}
+
+export interface CssSettingsArgs {
+  pressed: boolean;
+  cssProperty: string;
+  cssValue: string | number;
 }

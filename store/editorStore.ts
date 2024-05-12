@@ -18,9 +18,9 @@ const TEST_ELEMENT = [
     id: "2",
     component: "text",
     element: "h2",
-    className: "text-2xl font-semibold",
     content:
       "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
+    // style: { fontWeight: 500 },
   },
   {
     id: "3",
@@ -32,7 +32,7 @@ const TEST_ELEMENT = [
     id: "4",
     component: "text",
     element: "h6",
-    style: { fontWeight: 200 },
+    // style: { fontWeight: 200 },
     content: "📍 Remote 🚀 as of now ⏰ Full-time",
   },
   {

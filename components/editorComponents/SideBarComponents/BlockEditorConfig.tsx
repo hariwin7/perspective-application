@@ -1,127 +1,142 @@
 "use client";
 import useEditorStore from "@/store/editorStore";
-import React, { ChangeEvent } from "react";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import React from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { TextB, TextItalic, TextUnderline } from "@phosphor-icons/react";
+import { MaincomponentPropWithId } from "@/types/editorTypes";
+import { Toggle } from "@/components/ui/toggle";
+import { CssSettingsArgs } from "@/types/editorTypes";
+import { blocks, editorSettingsType } from "@/constants/components";
+import { nanoid } from "nanoid";
 
 const BlockEditorConfig = () => {
   const currentSelection = useEditorStore((state) => state.currentSelection);
   const setEditorConfig = useEditorStore((state) => state.setEditorConfig);
   const editorConfig = useEditorStore((state) => state.editorConfig);
 
-  const currentBlockElement = editorConfig.find(
-    (item) => item.id === currentSelection
-  );
+  const currentBlockElement: MaincomponentPropWithId | undefined =
+    editorConfig.find((item) => item.id === currentSelection);
 
-  const handleContentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const EditElementData = { ...currentBlockElement };
+  const handleContentChange = (key: string, value: string) => {
     const editEditorConfig = [...editorConfig];
     const currentBlockElementIndex = editorConfig.findIndex(
       (item) => item.id === currentSelection
     );
-    EditElementData.content = event.target.value;
-    editEditorConfig[currentBlockElementIndex] = EditElementData;
-    setEditorConfig(editEditorConfig);
-  };
-
-  const handleCssChanges = (cssProperty: string, value: string) => {
-    const style = {
-      ...currentBlockElement?.style,
-      [cssProperty]: value,
+    editEditorConfig[currentBlockElementIndex] = {
+      ...currentBlockElement,
+      [key]: value,
     };
-    let EditElementData = { ...currentBlockElement };
+    setEditorConfig(editEditorConfig);
+  };
+
+  const handleCssSettingsChange = ({
+    pressed,
+    cssProperty,
+    cssValue,
+  }: CssSettingsArgs) => {
+    let style: Object = {};
+    if (pressed) {
+      style = {
+        ...currentBlockElement?.style,
+        [cssProperty]: cssValue,
+      };
+    } else {
+      style = { ...currentBlockElement?.style };
+      delete style[cssProperty as keyof Object];
+    }
+    let editElementData = { ...currentBlockElement };
     const editEditorConfig = [...editorConfig];
     const currentBlockElementIndex = editorConfig.findIndex(
       (item) => item.id === currentSelection
     );
-    EditElementData.style = { ...style };
-    editEditorConfig[currentBlockElementIndex] = EditElementData;
+    editElementData = { ...editElementData, style };
+    editEditorConfig[currentBlockElementIndex] = editElementData;
     setEditorConfig(editEditorConfig);
   };
 
-  const handleHeaderChange = (value: string) => {
-    if (!value) return;
-
-    let EditElementData = { ...currentBlockElement };
-    const editEditorConfig = [...editorConfig];
-    const currentBlockElementIndex = editorConfig.findIndex(
-      (item) => item.id === currentSelection
-    );
-    EditElementData.element = value;
-    console.log(EditElementData, "EditElementData");
-    editEditorConfig[currentBlockElementIndex] = EditElementData;
-    setEditorConfig(editEditorConfig);
+  const getComponent = (
+    name: string,
+    config: any,
+    id: string,
+    currentBlockElement: MaincomponentPropWithId | undefined
+  ) => {
+    switch (name.toLowerCase()) {
+      case editorSettingsType.styleToggle:
+        return (
+          <Toggle
+            key={id}
+            onPressedChange={(pressed) =>
+              handleCssSettingsChange({
+                pressed,
+                cssProperty: config.key,
+                cssValue: config.value,
+              })
+            }
+            pressed={
+              currentBlockElement?.style?.hasOwnProperty(config.key) &&
+              currentBlockElement.style[config.key as keyof Object] ==
+                config.value
+            }
+          >
+            {config.content}
+          </Toggle>
+        );
+      case editorSettingsType.textArea:
+        return (
+          <Textarea
+            rows={6}
+            value={
+              currentBlockElement &&
+              currentBlockElement[config.key as keyof Object].toString()
+            }
+            onChange={(event) =>
+              handleContentChange(config.key, event.target.value)
+            }
+          />
+        );
+      case editorSettingsType.sizeToggle:
+        return (
+          <Toggle
+            key={id}
+            onPressedChange={() =>
+              handleContentChange(config.key, config.value)
+            }
+            pressed={
+              currentBlockElement?.hasOwnProperty(config.key) &&
+              currentBlockElement[config.key as keyof Object] == config.value
+            }
+          >
+            {config.content}
+          </Toggle>
+        );
+    }
   };
+
+  const editorSettingsConfig = blocks.find(
+    (block) =>
+      block.name.toLowerCase() === currentBlockElement?.component?.toLowerCase()
+  )?.editorSettingsConfig;
 
   return (
     <div className="flex flex-col p-4 w-full gap-4">
       <h1 className="text-xl font-semibold p-2 capitalize">
         {currentBlockElement?.component}
       </h1>
-      <ToggleGroup
-        type="single"
-        className="bg-[#F4F5F7] rounded-xl p-1"
-        onValueChange={handleHeaderChange}
-        value={currentBlockElement?.element}
-      >
-        <ToggleGroupItem
-          value="h6"
-          aria-label="Toggle small"
-          className="text-xl font-thin"
-        >
-          S
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="h4"
-          aria-label="Toggle medium"
-          className="text-xl font-thin"
-        >
-          M
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="h2"
-          aria-label="Toggle large"
-          className="text-xl font-thin"
-        >
-          L
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="h1"
-          aria-label="Toggle extra large"
-          className="text-xl font-thin"
-        >
-          XL
-        </ToggleGroupItem>
-      </ToggleGroup>
-      <ToggleGroup
-        type="multiple"
-        className="bg-[#F4F5F7] rounded-xl p-1"
-        onValueChange={(value: []) => {
-          value.forEach((val: string) => {
-            const [cssProperty, value] = val.split(":");
-            handleCssChanges(cssProperty, value);
-          });
-        }}
-      >
-        <ToggleGroupItem value="fontWeight:bold" aria-label="Toggle bold">
-          <TextB size={22} />
-        </ToggleGroupItem>
-        <ToggleGroupItem value="fontStyle:italic" aria-label="Toggle italic">
-          <TextItalic size={22} />
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="textDecoration:underline"
-          aria-label="Toggle strikethrough"
-        >
-          <TextUnderline size={22} />
-        </ToggleGroupItem>
-      </ToggleGroup>
-      <Textarea
-        rows={6}
-        value={currentBlockElement?.content}
-        onChange={handleContentChange}
-      />
+      {editorSettingsConfig?.length &&
+        editorSettingsConfig.map((section, index) => (
+          <div
+            className="bg-[#F4F5F7] rounded-xl p-1 justify-center flex gap-2"
+            key={index}
+          >
+            {section?.map((editorConfig) => {
+              return getComponent(
+                editorConfig.name,
+                editorConfig.config,
+                nanoid(),
+                currentBlockElement
+              );
+            })}
+          </div>
+        ))}
     </div>
   );
 };

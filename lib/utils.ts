@@ -18,3 +18,9 @@ export function formatDate(input: string | number): string {
 export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
 }
+
+export function cachingDecorator(func: Function) {
+  let addedProperty = new Set();
+
+  return func;
+}
