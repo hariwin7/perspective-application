@@ -172,7 +172,16 @@ export const blocks = [
         {
           name: "ColorPicker",
           config: {
-            colors: ["#0267C1", "#0075C4", "#EFA00B", "#D65108", "#591F0A"],
+            colors: [
+              "#0267C1",
+              "#0075C4",
+              "#EFA00B",
+              "#D65108",
+              "#591F0A",
+              "#FFFFFF",
+              "#000000",
+              "#ffb70f",
+            ],
             key: "color",
           },
         },
@@ -226,7 +235,16 @@ export const blocks = [
         {
           name: "ColorPicker",
           config: {
-            colors: ["#0267C1", "#0075C4", "#EFA00B", "#D65108", "#591F0A"],
+            colors: [
+              "#0267C1",
+              "#0075C4",
+              "#EFA00B",
+              "#D65108",
+              "#591F0A",
+              "#FFFFFF",
+              "#000000",
+              "#ffb70f",
+            ],
             key: "backgroundColor",
           },
         },

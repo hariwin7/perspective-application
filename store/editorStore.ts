@@ -22,12 +22,12 @@ const TEST_ELEMENT = [
     element: "h2",
     content:
       "Curious about how I can support your company's growth as a Front End/ Back End /Full Stack Developer?",
-    // style: { fontWeight: 500 },
+    style: { color: "#000000" },
   },
   {
     id: "3",
     component: "button",
-    style: { width: "200px" },
+    style: { width: "200px", backgroundColor: "#ffb70f" },
     content: "Hire me now",
   },
   {

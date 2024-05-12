@@ -14,8 +14,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { nanoid } from "nanoid";
-
 const BlockEditorConfig = () => {
   const currentSelection = useEditorStore((state) => state.currentSelection);
   const setEditorConfig = useEditorStore((state) => state.setEditorConfig);
@@ -64,7 +62,7 @@ const BlockEditorConfig = () => {
   const getComponent = (
     name: string,
     config: any,
-    id: string,
+    id: number,
     currentBlockElement: MaincomponentPropWithId | undefined
   ) => {
     switch (name.toLowerCase()) {
@@ -117,7 +115,7 @@ const BlockEditorConfig = () => {
             {config.content}
           </Toggle>
         );
-      case editorSettingsType.colorPicker:
+      case editorSettingsType.colorPicker: {
         return (
           <Select
             key={id}
@@ -133,14 +131,14 @@ const BlockEditorConfig = () => {
               })
             }
           >
-            <SelectTrigger className="w-24 h-12">
-              <SelectValue className="w-16 h-12 rounded" />
+            <SelectTrigger className="w-[80px] h-12">
+              <SelectValue className="w-[60px] h-12 rounded" />
             </SelectTrigger>
             <SelectContent>
               {config?.colors.map((color: string) => (
                 <SelectItem value={color} key={color}>
                   <div
-                    className="w-14 h-10 rounded"
+                    className="w-[53px] h-10 rounded"
                     style={{ backgroundColor: color }}
                   ></div>
                 </SelectItem>
@@ -148,6 +146,7 @@ const BlockEditorConfig = () => {
             </SelectContent>
           </Select>
         );
+      }
     }
   };
 
@@ -162,16 +161,16 @@ const BlockEditorConfig = () => {
         {currentBlockElement?.component}
       </h1>
       {editorSettingsConfig?.length &&
-        editorSettingsConfig.map((section, index) => (
+        editorSettingsConfig.map((section, sectionIndex) => (
           <div
             className=" bg-[#F4F5F7] rounded-xl p-1 justify-center flex gap-2"
-            key={nanoid()}
+            key={sectionIndex}
           >
-            {section?.map((editorConfig) => {
+            {section?.map((editorConfig, index) => {
               return getComponent(
                 editorConfig.name,
                 editorConfig.config,
-                nanoid(),
+                index,
                 currentBlockElement
               );
             })}
