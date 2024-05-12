@@ -6,6 +6,14 @@ import { MaincomponentPropWithId } from "@/types/editorTypes";
 import { Toggle } from "@/components/ui/toggle";
 import { CssSettingsArgs } from "@/types/editorTypes";
 import { blocks, editorSettingsType } from "@/constants/components";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { nanoid } from "nanoid";
 
 const BlockEditorConfig = () => {
@@ -83,6 +91,7 @@ const BlockEditorConfig = () => {
       case editorSettingsType.textArea:
         return (
           <Textarea
+            key={id}
             rows={6}
             value={
               currentBlockElement &&
@@ -108,6 +117,37 @@ const BlockEditorConfig = () => {
             {config.content}
           </Toggle>
         );
+      case editorSettingsType.colorPicker:
+        return (
+          <Select
+            key={id}
+            value={
+              currentBlockElement?.style?.hasOwnProperty(config.key) &&
+              currentBlockElement.style[config.key as keyof Object]
+            }
+            onValueChange={(value) =>
+              handleCssSettingsChange({
+                pressed: true,
+                cssProperty: config.key,
+                cssValue: value,
+              })
+            }
+          >
+            <SelectTrigger className="w-24 h-12">
+              <SelectValue className="w-16 h-12 rounded" />
+            </SelectTrigger>
+            <SelectContent>
+              {config?.colors.map((color: string) => (
+                <SelectItem value={color} key={color}>
+                  <div
+                    className="w-14 h-10 rounded"
+                    style={{ backgroundColor: color }}
+                  ></div>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        );
     }
   };
 
@@ -124,8 +164,8 @@ const BlockEditorConfig = () => {
       {editorSettingsConfig?.length &&
         editorSettingsConfig.map((section, index) => (
           <div
-            className="bg-[#F4F5F7] rounded-xl p-1 justify-center flex gap-2"
-            key={index}
+            className=" bg-[#F4F5F7] rounded-xl p-1 justify-center flex gap-2"
+            key={nanoid()}
           >
             {section?.map((editorConfig) => {
               return getComponent(

@@ -17,6 +17,7 @@ export const editorSettingsType = {
   styleToggle: "styletoggle",
   sizeToggle: "sizetoggle",
   textArea: "textarea",
+  colorPicker: "colorpicker",
 };
 
 export const blocks = [
@@ -31,7 +32,7 @@ export const blocks = [
           name: "StyleToggle",
           config: {
             content: <TextAlignLeft size={22} />,
-            key: "justifySelf",
+            key: "justifyContent",
             value: "start",
           },
         },
@@ -39,7 +40,7 @@ export const blocks = [
           name: "StyleToggle",
           config: {
             content: <TextAlignJustify size={22} />,
-            key: "justifySelf",
+            key: "justifyContent",
             value: "center",
           },
         },
@@ -47,8 +48,17 @@ export const blocks = [
           name: "StyleToggle",
           config: {
             content: <TextAlignRight size={22} />,
-            key: "justifySelf",
+            key: "justifyContent",
             value: "end",
+          },
+        },
+      ],
+      [
+        {
+          name: "Textarea",
+          config: {
+            content: "",
+            key: "content",
           },
         },
       ],
@@ -158,6 +168,15 @@ export const blocks = [
           },
         },
       ],
+      [
+        {
+          name: "ColorPicker",
+          config: {
+            colors: ["#0267C1", "#0075C4", "#EFA00B", "#D65108", "#591F0A"],
+            key: "color",
+          },
+        },
+      ],
     ],
   },
   {
@@ -200,6 +219,15 @@ export const blocks = [
           config: {
             content: "",
             key: "content",
+          },
+        },
+      ],
+      [
+        {
+          name: "ColorPicker",
+          config: {
+            colors: ["#0267C1", "#0075C4", "#EFA00B", "#D65108", "#591F0A"],
+            key: "backgroundColor",
           },
         },
       ],

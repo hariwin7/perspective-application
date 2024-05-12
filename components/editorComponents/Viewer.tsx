@@ -28,7 +28,7 @@ const Viewer = ({ desktop }: Props) => {
     desktop ? " w-[1020px]" : " w-[375px]"
   } bg-[#F4F4F7]`;
   const reOrderClassname =
-    "flex flex-col rounded-lg items-center overflow-visible";
+    "grid flex-col rounded-lg items-center overflow-visible";
 
   return (
     <div className={className}>
@@ -46,7 +46,7 @@ const Viewer = ({ desktop }: Props) => {
           >
             {editorConfig.map((item, index) => (
               <Reorder.Item
-                className={`outline-primary-blue hover:outline-dashed cursor-pointer flex justify-center w-[100%] ${
+                className={`outline-primary-blue hover:outline-dashed cursor-pointer grid  w-[100%] ${
                   currentSelection === item.id && "outline"
                 }`}
                 key={item.id}

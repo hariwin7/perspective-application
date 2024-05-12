@@ -32,7 +32,7 @@ const Navbar = ({ fixed }: { fixed?: boolean }) => {
         >
           <NotePencil
             size={22}
-            className={`cursor-pointer text-[#cecece] hover:text-hover-blue ${
+            className={`cursor-pointer hover:text-hover-blue ${
               editMode && "text-hover-blue"
             }`}
           />

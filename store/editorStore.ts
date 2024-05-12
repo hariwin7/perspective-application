@@ -6,6 +6,8 @@ const TEST_ELEMENT = [
   {
     id: "1nav",
     component: "navbar",
+    content:
+      "https://perspective.imgix.net/617f3780e99734002094f4c8.png?h=40&amp;dpr=2&amp;q=75&amp;auto=format,compress",
   },
   {
     id: "1",

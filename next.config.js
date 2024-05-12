@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "perspective.imgix.net",
+        hostname: "*",
         port: "",
         pathname: "**",
       },

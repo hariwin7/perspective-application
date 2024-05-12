@@ -38,7 +38,7 @@ const getComponent = ({
         />
       );
     case "navbar":
-      return <Navbar />;
+      return <Navbar style={style} imgSrc={content} />;
   }
 };
 
