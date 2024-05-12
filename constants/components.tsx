@@ -252,7 +252,7 @@ export const blocks = [
     ],
   },
   {
-    name: "Card",
+    name: "imagecard",
     defaultConfig: {
       component: "imagecard",
       items: [
@@ -269,5 +269,24 @@ export const blocks = [
         },
       ],
     },
+  },
+  {
+    name: "iframeembed",
+    defaultConfig: {
+      component: "iframeembed",
+      content:
+        "https://www.youtube.com/embed/Ffft2F1YeBA?controls=0&autoplay=1",
+    },
+    editorSettingsConfig: [
+      [
+        {
+          name: "Textarea",
+          config: {
+            content: "",
+            key: "content",
+          },
+        },
+      ],
+    ],
   },
 ];

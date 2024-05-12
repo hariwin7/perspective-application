@@ -4,10 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { NotePencil } from "@phosphor-icons/react";
 import useEditorStore from "@/store/editorStore";
+import { nanoid } from "nanoid";
+import { useRouter } from "next/navigation";
 
 const Navbar = ({ fixed }: { fixed?: boolean }) => {
   const editMode = useEditorStore((state) => state.editMode);
   const setEditMode = useEditorStore((state) => state.setEditMode);
+
+  const editorConfig = useEditorStore((state) => state.editorConfig);
+  const router = useRouter();
+
+  const handlePublish = () => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      const uniquePageId = nanoid();
+      localStorage.setItem(uniquePageId, JSON.stringify(editorConfig));
+      router.push(`/pages/${uniquePageId}`);
+    }
+  };
   return (
     <div
       className={`flex justify-between w-full p-4 border-box bg-transparent drop-shadow-md ${
@@ -37,7 +50,10 @@ const Navbar = ({ fixed }: { fixed?: boolean }) => {
             }`}
           />
         </div>
-        <button className="bg-primary-blue text-white px-6 py-2 text-sm capitalize rounded-lg drop-shadow-sm hover:bg-hover-blue">
+        <button
+          className="bg-primary-blue text-white px-6 py-2 text-sm capitalize rounded-lg drop-shadow-sm hover:bg-hover-blue"
+          onClick={handlePublish}
+        >
           publish
         </button>
       </div>

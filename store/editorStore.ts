@@ -68,6 +68,11 @@ const TEST_ELEMENT = [
       },
     ],
   },
+  {
+    id: "11",
+    component: "iframeembed",
+    content: "https://www.youtube.com/embed/Ffft2F1YeBA?controls=0&autoplay=1",
+  },
 ];
 
 interface Element {

@@ -155,6 +155,8 @@ const BlockEditorConfig = () => {
       block.name.toLowerCase() === currentBlockElement?.component?.toLowerCase()
   )?.editorSettingsConfig;
 
+  console.log(editorSettingsConfig, "editorSettingsConfig");
+
   return (
     <div className="flex flex-col p-4 w-full gap-4">
       <h1 className="text-xl font-semibold p-2 capitalize">

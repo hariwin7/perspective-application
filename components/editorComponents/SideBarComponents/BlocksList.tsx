@@ -35,7 +35,7 @@ const BlocksList = () => {
   };
 
   return (
-    <div className="flex flex-col m-4 gap-4 w-full">
+    <div className="flex flex-col m-4 gap-4 w-full overflow-y-auto h-full mb-10">
       <h1 className="text-xl font-semibold p-2 py-4">Add new block</h1>
       {blocks.map((block, index) => (
         <div

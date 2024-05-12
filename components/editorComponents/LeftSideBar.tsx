@@ -20,7 +20,7 @@ const LeftSideBar = () => {
   };
 
   return (
-    <div className="flex md:w-[280px] drop-shadow-xl mt-[3px] bg-white h-full">
+    <div className="flex md:w-[280px] drop-shadow-xl mt-[3px] bg-white h-full overflow-y-scroll">
       {getSideBarComponent()}
     </div>
   );

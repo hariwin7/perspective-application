@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Reorder } from "framer-motion";
-import { Plus } from "@phosphor-icons/react";
+import { DotsSixVertical, Plus } from "@phosphor-icons/react";
 import Block from "@/components/editorComponents/FormComponents/Block";
 import useEditorStore from "@/store/editorStore";
 import { sideBarType } from "@/constants/components";
@@ -46,7 +46,7 @@ const Viewer = ({ desktop }: Props) => {
           >
             {editorConfig.map((item, index) => (
               <Reorder.Item
-                className={`outline-primary-blue hover:outline-dashed cursor-pointer grid  w-[100%] ${
+                className={`outline-primary-blue hover:outline-dashed cursor-pointer grid w-[100%] ${
                   currentSelection === item.id && "outline"
                 }`}
                 key={item.id}

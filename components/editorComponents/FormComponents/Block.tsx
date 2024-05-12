@@ -3,8 +3,13 @@ import Text from "./Text";
 import Button from "./Button";
 import TitleCard from "./TitleCard";
 
-import { BlockProp as Props } from "@/types/editorTypes";
+import { BlockProp as Prop } from "@/types/editorTypes";
 import Navbar from "@/components/editorComponents/Navbar";
+import EmbedComponent from "./EmbedComponent";
+
+interface Props extends Prop {
+  renderIn?: string;
+}
 
 const getComponent = ({
   component,
@@ -13,6 +18,7 @@ const getComponent = ({
   content,
   style,
   items,
+  renderIn,
 }: Props) => {
   if (!component) return <></>;
 
@@ -39,6 +45,11 @@ const getComponent = ({
       );
     case "navbar":
       return <Navbar style={style} imgSrc={content} />;
+
+    case "iframeembed":
+      return (
+        <EmbedComponent style={style} iframeSrc={content} renderIn={renderIn} />
+      );
   }
 };
 
@@ -49,8 +60,17 @@ const Block = ({
   content,
   style,
   items,
+  renderIn,
 }: Props) => {
-  return getComponent({ component, element, className, content, style, items });
+  return getComponent({
+    component,
+    element,
+    className,
+    content,
+    style,
+    items,
+    renderIn,
+  });
 };
 
 export default Block;
