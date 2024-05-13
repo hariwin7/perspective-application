@@ -6,13 +6,13 @@ import { MaincomponentPropWithId as Element } from "@/types/editorTypes";
 
 const TEST_ELEMENT = [
   {
-    id: "1nav",
+    id: "1",
     component: "navbar",
     content:
       "https://perspective.imgix.net/617f3780e99734002094f4c8.png?h=40&amp;dpr=2&amp;q=75&amp;auto=format,compress",
   },
   {
-    id: "1",
+    id: "2",
     component: "text",
     element: "h6",
     content:
@@ -20,7 +20,7 @@ const TEST_ELEMENT = [
     style: { color: "#000000" },
   },
   {
-    id: "2",
+    id: "3",
     component: "text",
     element: "h2",
     content:
@@ -28,35 +28,35 @@ const TEST_ELEMENT = [
     style: { color: "#000000" },
   },
   {
-    id: "3",
+    id: "4",
     component: "button",
     style: { width: "200px", backgroundColor: "#ffb70f" },
     content: "Hire me now",
     redirectTo: "https://www.hariprasadkb.com",
   },
   {
-    id: "4",
+    id: "5",
     component: "text",
     element: "h6",
     style: { color: "#000000" },
     content: "📍 Remote 🚀 as of now ⏰ Full-time",
   },
   {
-    id: "5",
+    id: "6",
     component: "text",
     element: "h6",
     style: { color: "#000000" },
     content: "Hire me now as",
   },
   {
-    id: "6",
+    id: "7",
     component: "text",
     element: "h3",
     style: { color: "#000000" },
     content: "Front End / Backend Developer",
   },
   {
-    id: "10",
+    id: "8",
     component: "imagecard",
     items: [
       {
@@ -75,14 +75,14 @@ const TEST_ELEMENT = [
     ],
   },
   {
-    id: "5",
+    id: "9",
     component: "text",
     element: "h6",
     style: { color: "#000000" },
     content: "Here's a 2 min video resume",
   },
   {
-    id: "11",
+    id: "10",
     component: "iframeembed",
     content:
       "https://www.youtube-nocookie.com/embed/Ffft2F1YeBA?si=0WWTHUFeMlWN4Aqq?controls=0&autoplay=1",

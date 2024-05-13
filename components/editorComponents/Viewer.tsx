@@ -28,7 +28,7 @@ const Viewer = ({ desktop }: Props) => {
     desktop ? " w-[1020px]" : " w-[375px]"
   } bg-[#F4F4F7]`;
   const reOrderClassname =
-    "grid flex-col rounded-lg items-center overflow-visible";
+    "grid flex-col rounded-lg items-center overflow-visible w-full";
 
   return (
     <div className={className}>
