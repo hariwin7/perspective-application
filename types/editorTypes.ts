@@ -14,7 +14,7 @@ export interface BlockProp extends MaincomponentProp {
 }
 
 export interface ButtonProp extends ComponentProp {
-  clickHandler?: () => void;
+  redirectTo?: string;
 }
 
 export interface TitleCardItem {

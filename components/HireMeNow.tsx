@@ -3,6 +3,8 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import TitleCard from "./editorComponents/FormComponents/TitleCard";
 import ArrowDown from "./ArrowDown";
+
+import Block from "./editorComponents/FormComponents/Block";
 const HireMeNow = () => {
   return (
     <div className="w-full border-box pt-4 pl-8 pr-8 pb-6">
@@ -56,6 +58,17 @@ const HireMeNow = () => {
                 </h3>
               </div>
             </div>
+          </div>
+          <div className="grid flex-col rounded-lg items-center overflow-visible">
+            <Block
+              {...{
+                id: "3",
+                component: "button",
+                style: { width: "200px", backgroundColor: "#ffb70f" },
+                content: "Go to the website editor",
+                redirectTo: "/editor",
+              }}
+            />
           </div>
           <TitleCard
             content=""

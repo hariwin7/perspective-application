@@ -32,6 +32,7 @@ const TEST_ELEMENT = [
     component: "button",
     style: { width: "200px", backgroundColor: "#ffb70f" },
     content: "Hire me now",
+    redirectTo: "https://www.hariprasadkb.com",
   },
   {
     id: "4",
@@ -62,14 +63,23 @@ const TEST_ELEMENT = [
         content: "Yes, absolutely",
         cardImgSrc:
           "https://perspective.imgix.net/6019615ddf56ee001f39be7f.png?auto=compress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.51&fp-y=0.50&fp-z=1&h=480&ar=1.3333333333333333&dpr=2",
-        cardRoute: "/intro",
+        cardRoute: "https://www.hariprasadkb.com/",
       },
       {
         content: "Learn More",
         cardImgSrc:
           "https://perspective.imgix.net/601961b3e2bbda001f253741.png?ixlib=js-2.3.2&auto=format%2Ccompress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.50&fp-y=0.50&fp-z=1&h=480&q=80&ar=1.3333333333333333&dpr=2",
+
+        cardRoute: "https://www.linkedin.com/in/hariprasad-k-b-58878512b/",
       },
     ],
+  },
+  {
+    id: "5",
+    component: "text",
+    element: "h6",
+    style: { color: "#000000" },
+    content: "Here's a 2 min video resume",
   },
   {
     id: "11",

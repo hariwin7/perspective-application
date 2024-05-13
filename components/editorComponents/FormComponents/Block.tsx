@@ -19,6 +19,7 @@ const getComponent = ({
   style,
   items,
   renderIn,
+  ...rest
 }: Props) => {
   if (!component) return <></>;
 
@@ -30,10 +31,18 @@ const getComponent = ({
           content={content}
           element={element}
           style={style}
+          {...rest}
         />
       );
     case "button":
-      return <Button className={className} content={content} style={style} />;
+      return (
+        <Button
+          className={className}
+          content={content}
+          style={style}
+          {...rest}
+        />
+      );
     case "imagecard":
       return (
         <TitleCard
@@ -41,6 +50,7 @@ const getComponent = ({
           content={content}
           style={style}
           items={items}
+          {...rest}
         />
       );
     case "navbar":
@@ -48,7 +58,12 @@ const getComponent = ({
 
     case "iframeembed":
       return (
-        <EmbedComponent style={style} iframeSrc={content} renderIn={renderIn} />
+        <EmbedComponent
+          style={style}
+          iframeSrc={content}
+          renderIn={renderIn}
+          {...rest}
+        />
       );
   }
 };
@@ -61,6 +76,7 @@ const Block = ({
   style,
   items,
   renderIn,
+  ...rest
 }: Props) => {
   return getComponent({
     component,
@@ -70,6 +86,7 @@ const Block = ({
     style,
     items,
     renderIn,
+    ...rest,
   });
 };
 
