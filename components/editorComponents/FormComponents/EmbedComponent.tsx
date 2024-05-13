@@ -1,11 +1,5 @@
 import React from "react";
-
-interface Props {
-  iframeSrc: string | undefined;
-  style: Object;
-  className?: string;
-  renderIn?: string;
-}
+import { EmbedComponentProp as Props } from "@/types/editorTypes";
 
 const EmbedComponent = ({ iframeSrc, className, style, renderIn }: Props) => {
   return (
@@ -19,6 +13,8 @@ const EmbedComponent = ({ iframeSrc, className, style, renderIn }: Props) => {
           title="Video Resume"
           allowFullScreen
           src={iframeSrc}
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
         ></iframe>
       </div>
     </div>

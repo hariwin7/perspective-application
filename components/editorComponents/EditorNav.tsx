@@ -11,6 +11,10 @@ const Navbar = ({ fixed }: { fixed?: boolean }) => {
   const editMode = useEditorStore((state) => state.editMode);
   const setEditMode = useEditorStore((state) => state.setEditMode);
 
+  const setCurrentSideBarComponent = useEditorStore(
+    (state) => state.setCurrentSideBarComponent
+  );
+
   const editorConfig = useEditorStore((state) => state.editorConfig);
   const router = useRouter();
 
@@ -41,7 +45,10 @@ const Navbar = ({ fixed }: { fixed?: boolean }) => {
           className={`p-2 hover:bg-[#F2F8FF] drop-shadow-none rounded-lg ${
             editMode && "bg-[#F2F8FF]"
           }`}
-          onClick={() => setEditMode(!editMode)}
+          onClick={() => {
+            if (editMode) setCurrentSideBarComponent("");
+            setEditMode(!editMode);
+          }}
         >
           <NotePencil
             size={22}

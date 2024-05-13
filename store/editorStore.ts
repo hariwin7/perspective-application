@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import type {} from "@redux-devtools/extension"; // required for devtools typing
 
+import { MaincomponentPropWithId as Element } from "@/types/editorTypes";
+
 const TEST_ELEMENT = [
   {
     id: "1nav",
@@ -71,18 +73,10 @@ const TEST_ELEMENT = [
   {
     id: "11",
     component: "iframeembed",
-    content: "https://www.youtube.com/embed/Ffft2F1YeBA?controls=0&autoplay=1",
+    content:
+      "https://www.youtube-nocookie.com/embed/Ffft2F1YeBA?si=0WWTHUFeMlWN4Aqq?controls=0&autoplay=1",
   },
 ];
-
-interface Element {
-  id?: string;
-  component?: string;
-  element?: string;
-  className?: string;
-  style?: Object;
-  content?: string;
-}
 
 interface EditorState {
   editorConfig: Element[];
@@ -100,36 +94,36 @@ interface EditorState {
 
 const useEditorStore = create<EditorState>()(
   devtools(
-    // persist(
-    (set) => ({
-      currentSelection: "",
-      setCurrentSelection: (selection) =>
-        set(() => ({
-          currentSelection: selection,
-        })),
+    persist(
+      (set) => ({
+        currentSelection: "",
+        setCurrentSelection: (selection) =>
+          set(() => ({
+            currentSelection: selection,
+          })),
 
-      editorConfig: TEST_ELEMENT,
-      setEditorConfig: (newConfig) =>
-        set(() => ({
-          editorConfig: newConfig,
-        })),
+        editorConfig: TEST_ELEMENT,
+        setEditorConfig: (newConfig) =>
+          set(() => ({
+            editorConfig: newConfig,
+          })),
 
-      editMode: false,
-      setEditMode: (mode) =>
-        set(() => ({
-          editMode: mode,
-        })),
+        editMode: false,
+        setEditMode: (mode) =>
+          set(() => ({
+            editMode: mode,
+          })),
 
-      currentSideBarComponent: "",
-      setCurrentSideBarComponent: (mode) =>
-        set(() => ({
-          currentSideBarComponent: mode,
-        })),
-    })
-    //   {
-    //     name: "current selection",
-    //   }
-    // )
+        currentSideBarComponent: "",
+        setCurrentSideBarComponent: (mode) =>
+          set(() => ({
+            currentSideBarComponent: mode,
+          })),
+      }),
+      {
+        name: "current selection",
+      }
+    )
   )
 );
 

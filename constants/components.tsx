@@ -25,6 +25,8 @@ export const blocks = [
     name: "Navbar",
     defaultConfig: {
       component: "navbar",
+      content:
+        "https://perspective.imgix.net/617f3780e99734002094f4c8.png?h=40&amp;dpr=2&amp;q=75&amp;auto=format,compress",
     },
     editorSettingsConfig: [
       [
@@ -252,7 +254,7 @@ export const blocks = [
     ],
   },
   {
-    name: "imagecard",
+    name: "ImageCard",
     defaultConfig: {
       component: "imagecard",
       items: [
@@ -271,7 +273,7 @@ export const blocks = [
     },
   },
   {
-    name: "iframeembed",
+    name: "IframeEmbed",
     defaultConfig: {
       component: "iframeembed",
       content:

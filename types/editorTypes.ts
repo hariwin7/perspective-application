@@ -37,3 +37,10 @@ export interface CssSettingsArgs {
   cssProperty: string;
   cssValue: string | number;
 }
+
+export interface EmbedComponentProp {
+  iframeSrc: string | undefined;
+  style: Object;
+  className?: string;
+  renderIn?: string;
+}
