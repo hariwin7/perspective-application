@@ -213,6 +213,7 @@ export const blocks = [
       component: "button",
       style: { width: "200px" },
       content: "Hire me now",
+      redirectTo: "https://www.hariprasadkb.com",
     },
     editorSettingsConfig: [
       [
