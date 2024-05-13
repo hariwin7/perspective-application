@@ -17,6 +17,7 @@ const TEST_ELEMENT = [
     element: "h6",
     content:
       "Here is my application to a dream job, without a traditional job application!",
+    style: { color: "#000000" },
   },
   {
     id: "2",
@@ -36,21 +37,21 @@ const TEST_ELEMENT = [
     id: "4",
     component: "text",
     element: "h6",
-    // style: { fontWeight: 200 },
+    style: { color: "#000000" },
     content: "📍 Remote 🚀 as of now ⏰ Full-time",
   },
   {
     id: "5",
     component: "text",
     element: "h6",
-    style: { fontWeight: 200 },
+    style: { color: "#000000" },
     content: "Hire me now as",
   },
   {
     id: "6",
     component: "text",
     element: "h3",
-    style: { fontWeight: 600 },
+    style: { color: "#000000" },
     content: "Front End / Backend Developer",
   },
   {
