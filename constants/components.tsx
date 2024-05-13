@@ -256,6 +256,16 @@ export const blocks = [
       ],
       [
         {
+          name: "Textarea",
+          label: "Redirect to",
+          config: {
+            content: "",
+            key: "redirectTo",
+          },
+        },
+      ],
+      [
+        {
           name: "ColorPicker",
           label: "",
           config: {
