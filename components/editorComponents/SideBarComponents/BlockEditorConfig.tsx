@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 
 const BlockEditorConfig = () => {
   const currentSelection = useEditorStore((state) => state.currentSelection);
@@ -62,9 +63,12 @@ const BlockEditorConfig = () => {
   const getComponent = (
     name: string,
     config: any,
+    label: string,
     id: number,
     currentBlockElement: MaincomponentPropWithId | undefined
   ) => {
+    if (!name) return <></>;
+
     switch (name.toLowerCase()) {
       case editorSettingsType.styleToggle:
         return (
@@ -88,17 +92,20 @@ const BlockEditorConfig = () => {
         );
       case editorSettingsType.textArea:
         return (
-          <Textarea
-            key={id}
-            rows={6}
-            value={
-              currentBlockElement &&
-              currentBlockElement[config.key as keyof Object].toString()
-            }
-            onChange={(event) =>
-              handleContentChange(config.key, event.target.value)
-            }
-          />
+          <div className="grid w-full gap-1.5 p-2">
+            <Label>{label}</Label>
+            <Textarea
+              key={id}
+              rows={6}
+              value={
+                currentBlockElement &&
+                currentBlockElement[config.key as keyof Object].toString()
+              }
+              onChange={(event) =>
+                handleContentChange(config.key, event.target.value)
+              }
+            />
+          </div>
         );
       case editorSettingsType.sizeToggle:
         return (
@@ -147,6 +154,8 @@ const BlockEditorConfig = () => {
           </Select>
         );
       }
+      case editorSettingsType.imageCard:
+        return <div>No settings available for now</div>;
     }
   };
 
@@ -155,7 +164,7 @@ const BlockEditorConfig = () => {
       block.name.toLowerCase() === currentBlockElement?.component?.toLowerCase()
   )?.editorSettingsConfig;
 
-  console.log(editorSettingsConfig, "editorSettingsConfig");
+  console.log(currentBlockElement, "currentBlockElement");
 
   return (
     <div className="flex flex-col p-4 w-full gap-4">
@@ -172,6 +181,7 @@ const BlockEditorConfig = () => {
               return getComponent(
                 editorConfig.name,
                 editorConfig.config,
+                editorConfig?.label || "",
                 index,
                 currentBlockElement
               );

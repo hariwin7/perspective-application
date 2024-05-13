@@ -22,7 +22,7 @@ const TitleCard = ({ items }: Prop) => {
             ></Image>
           </Link>
           <div className="bg-yellow-button text-white h-14 rounded-b-md flex justify-center items-center">
-            {item.cardText}
+            {item.content}
           </div>
         </div>
       ))}

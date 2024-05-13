@@ -18,6 +18,7 @@ export const editorSettingsType = {
   sizeToggle: "sizetoggle",
   textArea: "textarea",
   colorPicker: "colorpicker",
+  imageCard: "imagecard",
 };
 
 export const blocks = [
@@ -32,6 +33,7 @@ export const blocks = [
       [
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignLeft size={22} />,
             key: "justifyContent",
@@ -40,6 +42,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignJustify size={22} />,
             key: "justifyContent",
@@ -48,6 +51,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignRight size={22} />,
             key: "justifyContent",
@@ -58,6 +62,7 @@ export const blocks = [
       [
         {
           name: "Textarea",
+          label: "Image Url",
           config: {
             content: "",
             key: "content",
@@ -78,6 +83,7 @@ export const blocks = [
       [
         {
           name: "SizeToggle",
+          label: "",
           config: {
             content: "S",
             value: "h6",
@@ -86,6 +92,7 @@ export const blocks = [
         },
         {
           name: "SizeToggle",
+          label: "",
           config: {
             content: "M",
             value: "h4",
@@ -94,6 +101,7 @@ export const blocks = [
         },
         {
           name: "SizeToggle",
+          label: "",
           config: {
             content: "L",
             value: "h2",
@@ -102,6 +110,7 @@ export const blocks = [
         },
         {
           name: "SizeToggle",
+          label: "",
           config: {
             content: "XL",
             value: "h1",
@@ -112,6 +121,7 @@ export const blocks = [
       [
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextB size={22} />,
             key: "fontWeight",
@@ -120,6 +130,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextItalic size={22} />,
             key: "fontStyle",
@@ -128,6 +139,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextUnderline size={22} />,
             key: "textDecoration",
@@ -138,6 +150,7 @@ export const blocks = [
       [
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignLeft size={22} />,
             key: "textAlign",
@@ -146,6 +159,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignJustify size={22} />,
             key: "textAlign",
@@ -154,6 +168,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignRight size={22} />,
             key: "textAlign",
@@ -164,6 +179,7 @@ export const blocks = [
       [
         {
           name: "Textarea",
+          label: "Text content",
           config: {
             content: "",
             key: "content",
@@ -173,6 +189,7 @@ export const blocks = [
       [
         {
           name: "ColorPicker",
+          label: "",
           config: {
             colors: [
               "#0267C1",
@@ -201,6 +218,7 @@ export const blocks = [
       [
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignLeft size={22} />,
             key: "justifySelf",
@@ -209,6 +227,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignJustify size={22} />,
             key: "justifySelf",
@@ -217,6 +236,7 @@ export const blocks = [
         },
         {
           name: "StyleToggle",
+          label: "",
           config: {
             content: <TextAlignRight size={22} />,
             key: "justifySelf",
@@ -227,6 +247,7 @@ export const blocks = [
       [
         {
           name: "Textarea",
+          label: "Button Text",
           config: {
             content: "",
             key: "content",
@@ -236,6 +257,7 @@ export const blocks = [
       [
         {
           name: "ColorPicker",
+          label: "",
           config: {
             colors: [
               "#0267C1",
@@ -259,18 +281,27 @@ export const blocks = [
       component: "imagecard",
       items: [
         {
-          cardText: "Yes, absolutely",
+          content: "Yes, absolutely",
           cardImgSrc:
             "https://perspective.imgix.net/6019615ddf56ee001f39be7f.png?auto=compress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.51&fp-y=0.50&fp-z=1&h=480&ar=1.3333333333333333&dpr=2",
           cardRoute: "/intro",
         },
         {
-          cardText: "Learn More",
+          content: "Learn More",
           cardImgSrc:
             "https://perspective.imgix.net/601961b3e2bbda001f253741.png?ixlib=js-2.3.2&auto=format%2Ccompress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.50&fp-y=0.50&fp-z=1&h=480&q=80&ar=1.3333333333333333&dpr=2",
         },
       ],
     },
+    editorSettingsConfig: [
+      [
+        {
+          name: "ImageCard",
+          label: "",
+          config: [],
+        },
+      ],
+    ],
   },
   {
     name: "IframeEmbed",
@@ -283,6 +314,7 @@ export const blocks = [
       [
         {
           name: "Textarea",
+          label: "Url",
           config: {
             content: "",
             key: "content",

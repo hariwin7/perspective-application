@@ -18,7 +18,7 @@ export interface ButtonProp extends ComponentProp {
 }
 
 export interface TitleCardItem {
-  cardText: string;
+  content: string;
   cardImgSrc: string;
   cardRoute?: string;
 }
