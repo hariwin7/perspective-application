@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import { MaincomponentProp as Prop } from "@/types/editorTypes";
 
-const TitleCard = ({ items }: Prop) => {
+const TitleCard = ({ items, style }: Prop) => {
   return (
-    <div className="flex gap-4 justify-center mt-6 p-2">
+    <div className="flex gap-4 justify-center mt-6 p-2" style={style}>
       {items?.map((item, index) => (
         <div
           className="flex flex-col hover:scale-105 transition ease-in-out delay-150 cursor-pointer "

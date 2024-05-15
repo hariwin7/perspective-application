@@ -105,36 +105,36 @@ interface EditorState {
 
 const useEditorStore = create<EditorState>()(
   devtools(
-    persist(
-      (set) => ({
-        currentSelection: "",
-        setCurrentSelection: (selection) =>
-          set(() => ({
-            currentSelection: selection,
-          })),
+    // persist(
+    (set) => ({
+      currentSelection: "",
+      setCurrentSelection: (selection) =>
+        set(() => ({
+          currentSelection: selection,
+        })),
 
-        editorConfig: TEST_ELEMENT,
-        setEditorConfig: (newConfig) =>
-          set(() => ({
-            editorConfig: newConfig,
-          })),
+      editorConfig: TEST_ELEMENT,
+      setEditorConfig: (newConfig) =>
+        set(() => ({
+          editorConfig: newConfig,
+        })),
 
-        editMode: false,
-        setEditMode: (mode) =>
-          set(() => ({
-            editMode: mode,
-          })),
+      editMode: false,
+      setEditMode: (mode) =>
+        set(() => ({
+          editMode: mode,
+        })),
 
-        currentSideBarComponent: "",
-        setCurrentSideBarComponent: (mode) =>
-          set(() => ({
-            currentSideBarComponent: mode,
-          })),
-      }),
-      {
-        name: "current selection",
-      }
-    )
+      currentSideBarComponent: "",
+      setCurrentSideBarComponent: (mode) =>
+        set(() => ({
+          currentSideBarComponent: mode,
+        })),
+    })
+    //   {
+    //     name: "current selection",
+    //   }
+    // )
   )
 );
 

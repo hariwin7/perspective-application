@@ -283,6 +283,23 @@ export const blocks = [
             key: "backgroundColor",
           },
         },
+        {
+          name: "ColorPicker",
+          label: "",
+          config: {
+            colors: [
+              "#0267C1",
+              "#0075C4",
+              "#EFA00B",
+              "#D65108",
+              "#591F0A",
+              "#FFFFFF",
+              "#000000",
+              "#ffb70f",
+            ],
+            key: "color",
+          },
+        },
       ],
     ],
   },
@@ -307,9 +324,13 @@ export const blocks = [
     editorSettingsConfig: [
       [
         {
-          name: "ImageCard",
+          name: "StyleToggle",
           label: "",
-          config: [],
+          config: {
+            content: <TextAlignJustify size={22} />,
+            key: "flexDirection",
+            value: "column",
+          },
         },
       ],
     ],
