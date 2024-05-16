@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
 
 const BlockEditorConfig = () => {
   const currentSelection = useEditorStore((state) => state.currentSelection);
@@ -156,6 +157,28 @@ const BlockEditorConfig = () => {
       }
       case editorSettingsType.imageCard:
         return <div>No settings available for now</div>;
+      case editorSettingsType.spacing:
+        return (
+          <div className="grid w-full gap-1.5 p-2">
+            <Label>{label}</Label>
+            <Slider
+              value={
+                currentBlockElement?.style?.hasOwnProperty(config.key)
+                  ? [currentBlockElement.style[config.key as keyof Object]]
+                  : [1]
+              }
+              max={100}
+              step={1}
+              onValueChange={(value) =>
+                handleCssSettingsChange({
+                  pressed: true,
+                  cssProperty: config.key,
+                  cssValue: value[0],
+                })
+              }
+            />
+          </div>
+        );
     }
   };
 

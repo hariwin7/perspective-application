@@ -19,6 +19,7 @@ export const editorSettingsType = {
   textArea: "textarea",
   colorPicker: "colorpicker",
   imageCard: "imagecard",
+  spacing: "spacing",
 };
 
 export const blocks = [
@@ -205,6 +206,24 @@ export const blocks = [
           },
         },
       ],
+      [
+        {
+          name: "Spacing",
+          label: "Margin",
+          config: {
+            content: "",
+            key: "margin",
+          },
+        },
+        {
+          name: "Spacing",
+          label: "Padding",
+          config: {
+            content: "",
+            key: "padding",
+          },
+        },
+      ],
     ],
   },
   {
@@ -298,6 +317,24 @@ export const blocks = [
               "#ffb70f",
             ],
             key: "color",
+          },
+        },
+      ],
+      [
+        {
+          name: "Spacing",
+          label: "Margin",
+          config: {
+            content: "",
+            key: "margin",
+          },
+        },
+        {
+          name: "Spacing",
+          label: "Padding",
+          config: {
+            content: "",
+            key: "padding",
           },
         },
       ],
