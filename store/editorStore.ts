@@ -9,7 +9,7 @@ const TEST_ELEMENT = [
     id: "1",
     component: "navbar",
     content:
-      "https://perspective.imgix.net/617f3780e99734002094f4c8.png?h=40&amp;dpr=2&amp;q=75&amp;auto=format,compress",
+      "https://github.com/Review-Reels/review-reels-web/blob/master/public/logo512.png?raw=true",
   },
   {
     id: "2",
@@ -62,13 +62,13 @@ const TEST_ELEMENT = [
       {
         content: "Yes, absolutely",
         cardImgSrc:
-          "https://perspective.imgix.net/6019615ddf56ee001f39be7f.png?auto=compress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.51&fp-y=0.50&fp-z=1&h=480&ar=1.3333333333333333&dpr=2",
+          "https://plus.unsplash.com/premium_photo-1682140993556-f263e434000b?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         cardRoute: "https://www.hariprasadkb.com/",
       },
       {
         content: "Learn More",
         cardImgSrc:
-          "https://perspective.imgix.net/601961b3e2bbda001f253741.png?ixlib=js-2.3.2&auto=format%2Ccompress&crop=focalpoint&cropHeight=360&cropWidth=480&fit=crop&fp-x=0.50&fp-y=0.50&fp-z=1&h=480&q=80&ar=1.3333333333333333&dpr=2",
+          "https://images.unsplash.com/photo-1562813733-b31f71025d54?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
         cardRoute: "https://www.linkedin.com/in/hariprasad-k-b-58878512b/",
       },
@@ -105,36 +105,36 @@ interface EditorState {
 
 const useEditorStore = create<EditorState>()(
   devtools(
-    persist(
-      (set) => ({
-        currentSelection: "",
-        setCurrentSelection: (selection) =>
-          set(() => ({
-            currentSelection: selection,
-          })),
+    // persist(
+    (set) => ({
+      currentSelection: "",
+      setCurrentSelection: (selection) =>
+        set(() => ({
+          currentSelection: selection,
+        })),
 
-        editorConfig: TEST_ELEMENT,
-        setEditorConfig: (newConfig) =>
-          set(() => ({
-            editorConfig: newConfig,
-          })),
+      editorConfig: TEST_ELEMENT,
+      setEditorConfig: (newConfig) =>
+        set(() => ({
+          editorConfig: newConfig,
+        })),
 
-        editMode: false,
-        setEditMode: (mode) =>
-          set(() => ({
-            editMode: mode,
-          })),
+      editMode: false,
+      setEditMode: (mode) =>
+        set(() => ({
+          editMode: mode,
+        })),
 
-        currentSideBarComponent: "",
-        setCurrentSideBarComponent: (mode) =>
-          set(() => ({
-            currentSideBarComponent: mode,
-          })),
-      }),
-      {
-        name: "current selection",
-      }
-    )
+      currentSideBarComponent: "",
+      setCurrentSideBarComponent: (mode) =>
+        set(() => ({
+          currentSideBarComponent: mode,
+        })),
+    })
+    //   {
+    //     name: "current selection",
+    //   }
+    // )
   )
 );
 
