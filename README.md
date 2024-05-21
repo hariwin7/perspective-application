@@ -14,7 +14,6 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Watch Demo here
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9-1h5mZaEo4/0.jpg)](https://www.youtube.com/watch?v=9-1h5mZaEo4)
 
 Watch the Code Explained
